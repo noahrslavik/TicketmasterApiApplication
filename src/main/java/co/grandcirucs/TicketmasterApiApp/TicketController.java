@@ -20,10 +20,18 @@ public class TicketController {
 	private TicketmasterApiService service;
 	
 	@RequestMapping("/")
-	public String search(@RequestParam(required=false) String keyword, Model model) {
-
+	public String search(@RequestParam(required=false) String keyword,
+			@RequestParam(required=false) Integer pageNumber, Model model) {
+		if(pageNumber == null) {
+			
+		}
+		else {
+			
+		}
+		
 		model.addAttribute("keyword", keyword);
-		List<ConcertInfo> tickets = service.searchByKeyword(keyword);
+		model.addAttribute("pageNumber", pageNumber);
+		List<ConcertInfo> tickets = service.searchByKeyword(keyword, pageNumber);
 		model.addAttribute("tickets",tickets);
 		System.out.println(tickets);
 		return "index";

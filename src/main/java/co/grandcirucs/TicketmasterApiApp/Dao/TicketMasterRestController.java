@@ -23,21 +23,21 @@ public class TicketMasterRestController {
 
 	// Aggregate root
 
-	@GetMapping("")
-	List<BList> all(@RequestParam(value = "name", required = false) String name) {
-
-		if (name == null || name.isEmpty()) {
-			return repository.findByOrderByName();
-		} else {
-			return repository.findByNameContainingIgnoreCaseOrderByName(name);
-		}
-	}
-
-	@PostMapping("/")
-	BList newBList(@RequestBody BList bList) {
-
-		return repository.save(bList);
-	}
+//	@GetMapping("")
+//	List<BList> all(@RequestParam(value = "name", required = false) String name) {
+//
+//		if (name == null || name.isEmpty()) {
+//			return repository.findByOrderByName();
+//		} else {
+//			return repository.findByNameContainingIgnoreCaseOrderByName(name);
+//		}
+//	}
+//
+//	@PostMapping("/")
+//	BList newBList(@RequestBody BList bList) {
+//
+//		return repository.save(bList);
+//	}
 
 	// Single item
 

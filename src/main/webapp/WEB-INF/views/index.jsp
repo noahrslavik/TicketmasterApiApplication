@@ -8,6 +8,29 @@
 <title>Insert title here</title>
 </head>
 <body>
-<c:out ${tickets} />
+        
+        <c:forEach items="${tickets}" var="tickets">    
+   <table style="width:100%">
+  <tr>
+    <th>Artist Name</th>
+    <th>Classification</th>
+    <th>Time</th>
+  </tr>
+  <tr>
+    <td><c:out value="${tickets.artistName}"/></td>
+    <td><c:out value="${tickets.classifications}"/></td>
+    <td><c:out value="${tickets.localTime}${tickets.localDate}"/></td>
+  </tr>
+ 
+</table>     
+        </c:forEach>
+        
+        
+        
+        
+        
+        
+        
+        
 </body>
 </html>

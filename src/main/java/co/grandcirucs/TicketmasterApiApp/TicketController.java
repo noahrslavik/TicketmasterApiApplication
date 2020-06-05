@@ -22,12 +22,7 @@ public class TicketController {
 	@RequestMapping("/")
 	public String search(@RequestParam(required=false) String keyword,
 			@RequestParam(required=false) Integer pageNumber, Model model) {
-		if(pageNumber == null) {
-			
-		}
-		else {
-			
-		}
+
 		
 		model.addAttribute("keyword", keyword);
 		model.addAttribute("pageNumber", pageNumber);
@@ -36,6 +31,9 @@ public class TicketController {
 		System.out.println(tickets);
 		return "index";
 	}
+	
+	
+	
 	
 	
 	

@@ -16,6 +16,13 @@
 		<th>Time</th>
 	</tr>
 
+<form>
+<label for="keyword"> Search by: </label>
+<input type="text" id ="keyword" name ="keyword"><br>
+<input type="submit" value="Submit">
+</form>
+
+
 	<c:forEach items="${tickets}" var="tickets">
 
 			<tr>
@@ -31,12 +38,8 @@
 		</table>
 	</c:forEach>
 
-
-
-
-
-
-
+<a href="/?keyword=${keyword}&pageNumber=${pageNumber+1}">Go forward</a>
+<a href="/?keyword=${keyword}&pageNumber=${pageNumber-1}">Go back</a>
 
 </body>
 </html>

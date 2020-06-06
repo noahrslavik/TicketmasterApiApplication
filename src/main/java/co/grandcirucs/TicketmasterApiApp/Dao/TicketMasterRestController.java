@@ -21,16 +21,16 @@ public class TicketMasterRestController {
 	@Autowired
 	private TicketMasterDao repository;
 
-	// Aggregate root
-
 //	@GetMapping("")
-//	List<BList> all(@RequestParam(value = "name", required = false) String name) {
+//	List<BList> all(@RequestParam(value = "artistName", required = true) String ,
+//			        @RequestParam(value = "name", required = true) String name
+//			        @RequestParam(value = "name", required = true) String name
+//			        @RequestParam(value = "name", required = true) String name
+//			        
+//			     
+//			) {
 //
-//		if (name == null || name.isEmpty()) {
-//			return repository.findByOrderByName();
-//		} else {
-//			return repository.findByNameContainingIgnoreCaseOrderByName(name);
-//		}
+//		return 
 //	}
 //
 //	@PostMapping("/")
@@ -38,15 +38,15 @@ public class TicketMasterRestController {
 //
 //		return repository.save(bList);
 //	}
-
-	// Single item
-
+//
+//	 Single item
+//
 //	@GetMapping("/}")
 //	Blist one(@PathVariable Long id) {
 //		return repository.findByField("");
 //				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "No such Product."));
 //	}
-
+//
 //	@DeleteMapping("/")
 //	void deleteBList(@PathVariable Long "") {
 //		repository.deleteBy("");

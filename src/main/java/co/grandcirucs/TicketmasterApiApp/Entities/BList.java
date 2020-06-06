@@ -32,7 +32,20 @@ public class BList {
 	    public BList() {
 	    
 	    }
+	    
+	    public BList(String bname, String bdatetime, String bgenre, String burl, String blocale, String burlimage) {
+	    	this.bname = bname;
+	    	this.bdatetime = bdatetime;
+	    	this.bgenre = bgenre;
+	    	this.burl = burl;
+	    	this.blocale = blocale;
+	    	this.burlimage = burlimage;
+	    }
 
+	    
+	    
+	    
+	    
 		public String getBname() {
 			return bname;
 		}

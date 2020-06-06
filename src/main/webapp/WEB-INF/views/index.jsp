@@ -31,13 +31,15 @@
 				<td><c:out value="${tickets.classifications}" /></td>
 				<td><c:out value="${tickets.localTime} ${tickets.localDate}" /></td>
 				<td><c:out value="${tickets.locale}" /></td>
-				<td><h ref link = "/favoriteslist"> Add to favorites</h> </td>
+				
+				<!-- I think Im using the set value incorrectly im only trying to pass params -->
 			    <c:set value="${tickets.image}" var="image" scope="application" />
-			    <c:set value="${tickets.artistName}" var="artist.name" scope="application" />
+			    <c:set value="${tickets.artistName}" var="artistName" scope="application" />
 			    <c:set value="${tickets.classifications}" var="classifications" scope="application" />
 			    <c:set value="${tickets.localTime}" var="localTime" scope="application" />
 			    <c:set value="${tickets.locale}" var="locale" scope="application" />
 			    <c:set value="${tickets.urlIn}" var="urlIn" scope="application" />
+			    <td><a href="/addtofavoriteslist"> Add to favorites</h> </td>
 			</tr>
 			<tr>
 			

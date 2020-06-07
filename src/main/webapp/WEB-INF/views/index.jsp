@@ -9,46 +9,38 @@
 <title>Insert title here</title>
 </head>
 <body>
+	
+	<form>
+<label for="keyword"> Search by: </label>
+<input type="text" id ="keyword" name ="keyword"><br>
+<input type="submit" value="Submit">
+</form>
+	
 	<table style="width: 100%">
 	<tr>
 		<th>Artist Name</th>
 		<th>Classification</th>
 		<th>Time</th>
 	</tr>
-
-<form>
-<label for="keyword"> Search by: </label>
-<input type="text" id ="keyword" name ="keyword"><br>
-<input type="submit" value="Submit">
-</form>
-
+    </table>
 
 	<c:forEach items="${tickets}" var="tickets">
-
+        <table>
 			<tr>
 				<td><img src="${tickets.image}" width = "50" height = "50"> </td>
-				<td><c:out value="${tickets.artistName}" /></td>
-				<td><c:out value="${tickets.classifications}" /></td>
-				<td><c:out value="${tickets.localTime} ${tickets.localDate}" /></td>
-				<td><c:out value="${tickets.locale}" /></td>
-				
-				<!-- I think Im using the set value incorrectly im only trying to pass params -->
-			    <c:set value="${tickets.image}" var="image" scope="application" />
-			    <c:set value="${tickets.artistName}" var="artistName" scope="application" />
-			    <c:set value="${tickets.classifications}" var="classifications" scope="application" />
-			    <c:set value="${tickets.localTime}" var="localTime" scope="application" />
-			    <c:set value="${tickets.locale}" var="locale" scope="application" />
-			    <c:set value="${tickets.urlIn}" var="urlIn" scope="application" />
-			    <td><a href="/addtofavoriteslist"> Add to favorites</h> </td>
-			</tr>
-			<tr>
-			
+				<td><c:out value="${tickets.artistName}"/></td>
+				<td><c:out value="${tickets.classifications}"/></td>
+				<td><c:out value="${tickets.localTime}"/></td>
+				<td><c:out value="${tickets.localDate}"/></td>
+				<td><c:out value="${tickets.locale}"/></td>
+				<td><a href ="${tickets.urlIn}">More info</a></td>
+			    <td><a href="/addtofavoriteslist"> Add to favorites</a></td>
 			</tr>
 		</table>
 	</c:forEach>
 
-<a href="/?keyword=${keyword}&pageNumber=${pageNumber+1}">Go forward</a>
-<a href="/?keyword=${keyword}&pageNumber=${pageNumber-1}">Go back</a>
 
+<a href="/?keyword=${keyword}&pageNumber=${pageNumber-1}">Go back</a>
+<a href="/?keyword=${keyword}&pageNumber=${pageNumber+1}">Go forward</a>
 </body>
 </html>

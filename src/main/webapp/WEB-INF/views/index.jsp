@@ -52,38 +52,38 @@
 
 	<c:forEach items="${tickets}" var="tickets">
 		<div class="card w-100">
-		<div class = row>
-		<div class = column>
-							<img src="${tickets.image}" width="150" height="150">
-		</div>
-		
-			<div class="card-body">
-				<h5 class="card-title">
-			<div class = column>
-					<c:out value="${tickets.artistName}"></c:out>
-				</h5>
-				<p class="card-text">
-					<c:out value="${tickets.classifications}"></c:out>
-				</p>
-				<p class="card-text">
-					<c:out value="${tickets.localTime}	${tickets.localDate}"></c:out>
-				</p>
+			<div class=row>
+				<div class=column>
+					<img src="${tickets.image}" width="150" height="150">
 				</div>
-				<div class = column>
-				<form method="Post" action=${tickets.urlIn}}>
-					<button class ="btn btn-primary">More Info</button>
-				</form>
+
+				<div class="card-body">
+					<h5 class="card-title">
+						<div class=column>
+							<c:out value="${tickets.artistName}"></c:out>
+					</h5>
+					<p class="card-text">
+						<c:out value="${tickets.classifications}"></c:out>
+					</p>
+					<p class="card-text">
+						<c:out value="${tickets.localTime}	${tickets.localDate}"></c:out>
+					</p>
 				</div>
-				<div class = column>
-				<form method="Post"
+				<div class=column>
+					<form method="Post" action=${tickets.urlIn}}>
+						<button class="btn btn-primary">More Info</button>
+					</form>
+				</div>
+				<div class=column>
+					<form method="Post"
 						action="/addtofavoriteslist?artistName=${tickets.artistName}&classifications=${tickets.classifications}
 			    &localTime=${tickets.localTime}&localDate=${tickets.localDate}&locale=${tickets.locale}
 			    &urlIn=${tickets.urlIn}&image=${tickets.image}">
-						<button class ="btn btn-primary">Add to Favorites</button>
+						<button class="btn btn-primary">Add to Favorites</button>
 					</form>
-					</div>
+				</div>
 			</div>
-		</div>		
+		</div>
 
 	</c:forEach>
 

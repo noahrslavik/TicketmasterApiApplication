@@ -1,5 +1,6 @@
 package co.grandcirucs.TicketmasterApiApp;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +21,13 @@ public class TicketController {
 	private TicketmasterApiService service;
 	
 	@RequestMapping("/")
-	public String search(@RequestParam(required=false) String keyword,
+	public String search(@RequestParam(required=false) String keyword,@RequestParam(required=false) String classificationName,
 			@RequestParam(required=false) Integer pageNumber, Model model) {
-
 		
+		model.addAttribute("classificationName", classificationName);
 		model.addAttribute("keyword", keyword);
 		model.addAttribute("pageNumber", pageNumber);
-		List<ConcertInfo> tickets = service.searchByKeyword(keyword, pageNumber);
+		List<ConcertInfo> tickets = service.searchByKeyword(keyword,classificationName,pageNumber);
 		model.addAttribute("tickets",tickets);
 		System.out.println(tickets);
 		return "index";

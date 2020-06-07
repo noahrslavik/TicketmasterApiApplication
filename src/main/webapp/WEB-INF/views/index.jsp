@@ -6,53 +6,93 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
 <title>Insert title here</title>
 </head>
 <body>
-	
+
 	<form>
-<label for="keyword"> Search by: </label>
-<input type="text" id ="keyword" name ="keyword"><br>
-<input type="submit" value="Submit">
-</form>
-	
-	<table style="width: 100%">
-	<tr>
-		<th>Artist Name</th>
-		<th>Classification</th>
-		<th>Time</th>
-	</tr>
-    </table>
+		<label for="keyword"> Search by: </label> <input type="text"
+			id="keyword" name="keyword"> <select id="classificationName"
+			name="classificationName">
+			<option value=""></option>
+			<option value="Alternative">Alternative</option>
+			<option value="Blues">Blues</option>
+			<option value="Classical">Classical</option>
+			<option value="Country">Country</option>
+			<option value="Electronic">Electronic</option>
+			<option value="Folk">Folk</option>
+			<option value="Rap">Rap</option>
+			<option value="Holiday">Holiday</option>
+			<option value="Jazz">Jazz</option>
+			<option value="Latin">Latin</option>
+			<option value="Metal">Metal</option>
+			<option value="New Age">New Age</option>
+			<option value="Pop">Pop</option>
+			<option value="R&B">R&B</option>
+			<option value="Reggae">Reggae</option>
+			<option value="Religious">Religious</option>
+			<option value="Rock">Rock</option>
+			<option value="Other">Other</option>
+		</select> <input type="date" id="localStartEndDate" name="localStartEndDate"
+			required pattern="d{4}-\d{2}-\d{2}">
+		<script>
+			localStartEndDate = localStartEndDate.toString();
+		</script>
+
+
+
+		<input type="submit" value="Submit">
+	</form>
+	<br>
+
 
 	<c:forEach items="${tickets}" var="tickets">
-        <table>
-			<tr>
-				<td><img src="${tickets.image}" width = "50" height = "50"> </td>
-				<td><c:out value="${tickets.artistName}"/></td>
-				<td><c:out value="${tickets.classifications}"/></td>
-				<td><c:out value="${tickets.localTime}"/></td>
-				<td><c:out value="${tickets.localDate}"/></td>
-				<td><c:out value="${tickets.locale}"/></td>
-				<td><form action=${tickets.urlIn}}>
-			    <button>More Info</button>
-			    </form></td>
-			    <td><form method="post" action="/addtofavoriteslist/" >
-                <input type="hidden" name="artistName" value="${tickets.artistName}" />
-                <input type="hidden" name = "classifications" value="${tickets.classifications}"/>
-                <input type="hidden" name="localTime" value="${tickets.localTime}" />
-                <input type="hidden" name="localDate" value="${tickets.localDate}" />
-                <input type="hidden" name="locale" value="${tickets.locale}" />
-                <input type="hidden" name="urlIn" value="${tickets.urlIn}" />
-                <input type="hidden" name="image" value="${tickets.image}" />
-                <input type="submit" value="Add to Favorites" />
-			    </form> 
-			    </td>
-			</tr>
-		</table>
+		<div class="card w-100">
+		<div class = row>
+		<div class = column>
+							<img src="${tickets.image}" width="150" height="150">
+		</div>
+		
+			<div class="card-body">
+				<h5 class="card-title">
+			<div class = column>
+					<c:out value="${tickets.artistName}"></c:out>
+				</h5>
+				<p class="card-text">
+					<c:out value="${tickets.classifications}"></c:out>
+				</p>
+				<p class="card-text">
+					<c:out value="${tickets.localTime}	${tickets.localDate}"></c:out>
+				</p>
+				</div>
+				<div class = column>
+				<form method="Post" action=${tickets.urlIn}}>
+					<button class ="btn btn-primary">More Info</button>
+				</form>
+				</div>
+				<div class = column>
+				<form method="Post"
+						action="/addtofavoriteslist?artistName=${tickets.artistName}&classifications=${tickets.classifications}
+			    &localTime=${tickets.localTime}&localDate=${tickets.localDate}&locale=${tickets.locale}
+			    &urlIn=${tickets.urlIn}&image=${tickets.image}">
+						<button class ="btn btn-primary">Add to Favorites</button>
+					</form>
+					</div>
+			</div>
+		</div>		
+
 	</c:forEach>
 
 
-<a href="/?keyword=${keyword}&pageNumber=${pageNumber-1}">Go back</a>
-<a href="/?keyword=${keyword}&pageNumber=${pageNumber+1}">Go forward</a>
+	<a
+		href="/?keyword=${keyword}&classificationName=${classificationName}&pageNumber=${pageNumber-1}">Go
+		back</a>
+	<a
+		href="/?keyword=${keyword}&classificationName=${classificationName}&pageNumber=${pageNumber+1}">Go
+		forward</a>
 </body>
 </html>

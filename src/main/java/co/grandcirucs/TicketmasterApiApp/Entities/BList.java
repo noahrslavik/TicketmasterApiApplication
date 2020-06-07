@@ -15,16 +15,12 @@ public class BList {
 		@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 		private Long bid;
 	    private String bname;
-	 // private String bperformance;
-	    private String bdatetime;
+	    private String bdate;
+	    private String btime;
 		private String bgenre;
-		private String btimezone;
 		private String burl;
 		private String blocale;
-		private String bratio;
 		private String burlimage;
-		private Integer bwidth;
-		private Integer bheight;
 		
 		@ManyToOne
 		private User user;
@@ -33,33 +29,41 @@ public class BList {
 	    
 	    }
 	    
-	    public BList(String bname, String bdatetime, String bgenre, String burl, String blocale, String burlimage) {
-	    	this.bname = bname;
-	    	this.bdatetime = bdatetime;
-	    	this.bgenre = bgenre;
-	    	this.burl = burl;
-	    	this.blocale = blocale;
-	    	this.burlimage = burlimage;
-	    }
+		public BList(String bname, String bdate, String btime, String bgenre, String burl, String blocale,
+				String burlimage) {
+			super();
+			this.bname = bname;
+			this.bdate = bdate;
+			this.btime = btime;
+			this.bgenre = bgenre;
+			this.burl = burl;
+			this.blocale = blocale;
+			this.burlimage = burlimage;
+		}
 
-	    
-	    
-	    
-	    
+
+		public String getBdate() {
+			return bdate;
+		}
+
+		public void setBdate(String bdate) {
+			this.bdate = bdate;
+		}
+
+		public String getBtime() {
+			return btime;
+		}
+
+		public void setBtime(String btime) {
+			this.btime = btime;
+		}
+
 		public String getBname() {
 			return bname;
 		}
 
 		public void setBname(String bname) {
 			this.bname = bname;
-		}
-
-		public String getBdatetime() {
-			return bdatetime;
-		}
-
-		public void setBdatetime(String bdatetime) {
-			this.bdatetime = bdatetime;
 		}
 
 		public String getBgenre() {
@@ -124,12 +128,5 @@ public class BList {
 
 		public void setBheight(Integer bheight) {
 			this.bheight = bheight;
-		}
-
-		@Override
-		public String toString() {
-			return "BList [bname=" + bname + ", bdatetime=" + bdatetime + ", bgenre=" + bgenre + ", btimezone="
-					+ btimezone + ", burl=" + burl + ", blocale=" + blocale + ", bratio=" + bratio + ", burlimage="
-					+ burlimage + ", bwidth=" + bwidth + ", bheight=" + bheight + "]";
 		}
 }

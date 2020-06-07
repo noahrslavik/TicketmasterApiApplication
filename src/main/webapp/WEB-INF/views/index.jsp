@@ -33,8 +33,15 @@
 				<td><c:out value="${tickets.localTime}"/></td>
 				<td><c:out value="${tickets.localDate}"/></td>
 				<td><c:out value="${tickets.locale}"/></td>
-				<td><a href ="${tickets.urlIn}">More info</a></td>
-			    <td><a href="/addtofavoriteslist"> Add to favorites</a></td>
+				<td><form method="Post" action=${tickets.urlIn}}>
+			    <button>More Info</button>
+			    </form></td>
+			    <td><form method="Post" action="/addtofavoriteslist?artistName=${tickets.artistName}&classifications=${tickets.classifications}
+			    &localTime=${tickets.localTime}&localDate=${tickets.localDate}&locale=${tickets.locale}
+			    &urlIn=${tickets.urlIn}&image=${tickets.image}">
+			    <button>Add to Favorites</button>
+			    </form> 
+			    </td>
 			</tr>
 		</table>
 	</c:forEach>

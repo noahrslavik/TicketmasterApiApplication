@@ -46,7 +46,7 @@ public class TicketmasterApiService {
 					localTime, image, classifications);
 			
 			concertArray.add(concert);
-			System.out.print(concert);
+		
 		}
 		
 		return concertArray;

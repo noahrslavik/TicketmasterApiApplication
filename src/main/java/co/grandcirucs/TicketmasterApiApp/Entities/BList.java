@@ -72,14 +72,7 @@ public class BList {
 
 		public void setBgenre(String bgenre) {
 			this.bgenre = bgenre;
-		}
-
-		public String getBtimezone() {
-			return btimezone;
-		}
-
-		public void setBtimezone(String btimezone) {
-			this.btimezone = btimezone;
+	
 		}
 
 		public String getBurl() {
@@ -98,35 +91,11 @@ public class BList {
 			this.blocale = blocale;
 		}
 
-		public String getBratio() {
-			return bratio;
-		}
-
-		public void setBratio(String bratio) {
-			this.bratio = bratio;
-		}
-
 		public String getBurlimage() {
 			return burlimage;
 		}
 
 		public void setBurlimage(String burlimage) {
 			this.burlimage = burlimage;
-		}
-
-		public Integer getBwidth() {
-			return bwidth;
-		}
-
-		public void setBwidth(Integer bwidth) {
-			this.bwidth = bwidth;
-		}
-
-		public Integer getBheight() {
-			return bheight;
-		}
-
-		public void setBheight(Integer bheight) {
-			this.bheight = bheight;
 		}
 }

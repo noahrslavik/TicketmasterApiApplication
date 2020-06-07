@@ -33,13 +33,18 @@
 				<td><c:out value="${tickets.localTime}"/></td>
 				<td><c:out value="${tickets.localDate}"/></td>
 				<td><c:out value="${tickets.locale}"/></td>
-				<td><form method="Post" action=${tickets.urlIn}}>
+				<td><form action=${tickets.urlIn}}>
 			    <button>More Info</button>
 			    </form></td>
-			    <td><form method="Post" action="/addtofavoriteslist?artistName=${tickets.artistName}&classifications=${tickets.classifications}
-			    &localTime=${tickets.localTime}&localDate=${tickets.localDate}&locale=${tickets.locale}
-			    &urlIn=${tickets.urlIn}&image=${tickets.image}">
-			    <button>Add to Favorites</button>
+			    <td><form method="post" action="/addtofavoriteslist/" >
+                <input type="hidden" name="artistName" value="${tickets.artistName}" />
+                <input type="hidden" name = "classifications" value="${tickets.classifications}"/>
+                <input type="hidden" name="localTime" value="${tickets.localTime}" />
+                <input type="hidden" name="localDate" value="${tickets.localDate}" />
+                <input type="hidden" name="locale" value="${tickets.locale}" />
+                <input type="hidden" name="urlIn" value="${tickets.urlIn}" />
+                <input type="hidden" name="image" value="${tickets.image}" />
+                <input type="submit" value="Add to Favorites" />
 			    </form> 
 			    </td>
 			</tr>

@@ -17,12 +17,30 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+<style>
+.carousel .item {
+  height: 300px;
+}
+
+.item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 300px;
+}
+</style>
 <title>Nandy Tickets</title>
 
 <nav class="navbar navbar-light bg-light">
-	<a class="navbar-brand" href="/"> <img src="nandy.jpg" width="30"
-		height="30" class="d-inline-block align-top" alt=""> andy
-	</a>
+	<ul class="nav-item">
+		<a class="navbar-brand" href="/"> <img src="nandy.jpg" width="30"
+			height="30" class="d-inline-block align-top" alt=""> andy
+		</a>
+	</ul>
+	<ul class="nav-item">
+		<a class="btn btn-secondary btn-lg active" href="/favorites">BucketList</a>
+
+	</ul>
 </nav>
 <style>
 .bg {
@@ -33,29 +51,36 @@
 
 <body>
 	<div class="bg">
-	<div id="carouselExampleControls" class="carousel slide"
-		data-ride="carousel">
-		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<img src="confetti.jpeg" class="d-block w-25" alt="...">
+		<div id="carouselExampleControls" class="carousel slide"
+			data-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="confetti.jpeg" class="d-block w-75" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+						<h1>Nandy Ticket Master</h1>
+						<h2>Making entertainment come to life</h2>
+					</div>
+				</div>
+				<c:forEach items="${bucket}" var="list">
+					<div class="carousel-item">
+						<img src="${list.burlimage}" class="d-block w-75" alt="...">
+						<div class="carousel-caption d-none d-md-block">
+							<h2>${list.bname}</h2>
+							<h3>${list.bdate}</h3>
+						</div>
+					</div>
+				</c:forEach>
 			</div>
-			<div class="carousel-item">
-				<img src="confetti.jpeg" class="d-block w-25" alt="...">
-			</div>
-			<div class="carousel-item">
-				<img src="confetti.jpeg" class="d-block w-25" alt="...">
-			</div>
+			<a class="carousel-control-prev" href="#carouselExampleControls"
+				role="button" data-slide="prev"> <span
+				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+				class="sr-only">Previous</span>
+			</a> <a class="carousel-control-next" href="#carouselExampleControls"
+				role="button" data-slide="next"> <span
+				class="carousel-control-next-icon" aria-hidden="true"></span> <span
+				class="sr-only">Next</span>
+			</a>
 		</div>
-		<a class="carousel-control-prev" href="#carouselExampleControls"
-			role="button" data-slide="prev"> <span
-			class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-			class="sr-only">Previous</span>
-		</a> <a class="carousel-control-next" href="#carouselExampleControls"
-			role="button" data-slide="next"> <span
-			class="carousel-control-next-icon" aria-hidden="true"></span> <span
-			class="sr-only">Next</span>
-		</a>
-	</div>
 
 		<form class="form-inline">
 			<div class="form-row align-items-center">
@@ -96,11 +121,12 @@
 						<option value="fr-fr">French</option>
 						<option value="de-de">Greek</option>
 						<option value="es-es">Spanish</option>
+						<option value="it-it">Italian</option>
 
 					</select>
 				</div>
 				<div class="col-auto my-1">
-					<input type="submit" class=btn btn-sm btn-outline-secondary
+					<input type="submit" class="btn btn-outline-secondary"
 						value="Submit">
 				</div>
 			</div>
@@ -124,11 +150,21 @@
 							<p class="card-text">
 								<c:out
 									value="${tickets.classifications} ${tickets.localTime}	${tickets.localDate}"></c:out>
-							<form method="Post" action=${tickets.urlIn}}>
-								<button class="btn btn-sm btn-outline-secondary">More
+							</p>
+							<p class="card-text">
+								<c:if test="${empty tickets.venueName}">
+									<c:out value="${tickets.cityName},${tickets.countryName}"></c:out>
+								</c:if>
+								<c:if test="${not empty tickets.venueName}">
+									<c:out
+										value="${tickets.venueName} ${tickets.cityName},${tickets.countryName}"></c:out>
+								</c:if>
+							</p>
+
+							<button class="btn btn-sm btn-outline-secondary">More
 									Info</button>
 							</form>
-
+	
 							<form method="Post" action="/addtofavoriteslist">
 								<input type="hidden" name="artistName"
 									value="${tickets.artistName}" /> <input type="hidden"
@@ -136,14 +172,13 @@
 									type="hidden" name="localTime" value="${tickets.localTime}" />
 								<input type="hidden" name="localDate"
 									value="${tickets.localDate}" /> <input type="hidden"
-									name="locale" value="${tickets.locale}" /> <input type="hidden"
-									name="urlIn" value="${tickets.urlIn}" /> <input type="hidden"
-									name="image" value="${tickets.image}" /> <input type="hidden"
-									name="pageNumber" value="${pageNumber}" /> <input type="hidden"
-									name="keyword" value="${keyword}" />
-								<button class="btn btn-primary">Add to Favorites</button>
+									name="locale" value="${tickets.locale}" /> <input
+									type="hidden" name="urlIn" value="${tickets.urlIn}" /> <input
+									type="hidden" name="image" value="${tickets.image}" /> <input
+									type="hidden" name="pageNumber" value="${pageNumber}" /> <input
+									type="hidden" name="keyword" value="${keyword}" />
+								<button class="btn btn-sm btn-outline-secondary">Add to Favorites</button>
 							</form>
-							</p>
 						</div>
 					</div>
 				</div>
@@ -153,9 +188,9 @@
 		</c:forEach>
 
 
-		<a
+		<a class="btn btn-secondary btn-lg"
 			href="/?keyword=${keyword}&classificationName=${classificationName}&pageNumber=${pageNumber-1}">Go
-			back</a> <a
+			back</a> <a class="btn btn-secondary btn-lg"
 			href="/?keyword=${keyword}&classificationName=${classificationName}&pageNumber=${pageNumber+1}">Go
 			forward</a>
 	</div>

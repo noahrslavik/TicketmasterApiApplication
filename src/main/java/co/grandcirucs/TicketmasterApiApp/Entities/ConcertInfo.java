@@ -13,13 +13,16 @@ public class ConcertInfo {
 	private LocalTime localTime;
 	private String image;
 	private String classifications;
+	private String venueName;
+	private String cityName;
+	private String countryName;
 	
 		public ConcertInfo() {
 			
 		}
 	
 	public ConcertInfo(String artistName, String urlIn, String locale, String timezone, LocalDate localDate,
-			LocalTime localTime, String image, String classifications) {
+			LocalTime localTime, String image, String classifications, String venueName, String cityName, String countryName) {
 		super();
 		this.artistName = artistName;
 		this.urlIn = urlIn;
@@ -29,6 +32,9 @@ public class ConcertInfo {
 		this.localTime = localTime;
 		this.image = image;
 		this.classifications = classifications;
+		this.venueName = venueName;
+		this.cityName = cityName;
+		this.countryName = countryName;
 	}
 	public void setArtistName(String artistName) {
 		this.artistName = artistName;
@@ -83,6 +89,38 @@ public class ConcertInfo {
 	}
 	public void setClassifications(String classifications) {
 		this.classifications = classifications;
+	}
+
+	public String getCountryName() {
+		return countryName;
+	}
+
+	public void setCountryName(String countryName) {
+		this.countryName = countryName;
+	}
+
+	public String getCityName() {
+		return cityName;
+	}
+
+	public void setCityName(String cityName) {
+		this.cityName = cityName;
+	}
+
+	public String getVenueName() {
+		return venueName;
+	}
+
+	public void setVenueName(String venueName) {
+		this.venueName = venueName;
+	}
+
+	@Override
+	public String toString() {
+		return "ConcertInfo [artistName=" + artistName + ", urlIn=" + urlIn + ", locale=" + locale + ", timezone="
+				+ timezone + ", localDate=" + localDate + ", localTime=" + localTime + ", image=" + image
+				+ ", classifications=" + classifications + ", venueName=" + venueName + ", cityName=" + cityName
+				+ ", countryName=" + countryName + "]";
 	}
 	
 	

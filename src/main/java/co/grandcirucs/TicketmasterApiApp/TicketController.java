@@ -23,19 +23,30 @@ public class TicketController {
 	@Autowired TicketMasterDao repository;
 	
 	@RequestMapping("/")
-	public String search(@RequestParam(required=false) String keyword,@RequestParam(required=false) String name,
+	public String search(@RequestParam(required=false) String keyword,@RequestParam(required=false) String classificationName,
 			@RequestParam(required=false) String local,
 			@RequestParam(required=false) Integer pageNumber, Model model) {
 		
+		if(local == null) {
+			local = "en-us";
+					}
+		List<BList> bucket = repository.findAll();
+		model.addAttribute("bucket",bucket);
 		
 		model.addAttribute("local", local);
-		model.addAttribute("name", name);
+		model.addAttribute("name", classificationName);
 		model.addAttribute("keyword", keyword);
 		model.addAttribute("pageNumber", pageNumber);
-		List<ConcertInfo> tickets = service.searchByKeyword(keyword,name, local,pageNumber);
+
+		List<ConcertInfo> tickets = service.searchByKeyword(keyword,classificationName, local,pageNumber);
+		System.out.println(tickets);
+		if(tickets == null) {
+		return "index";	
+		}
+		else {
 		model.addAttribute("tickets",tickets);
-		//System.out.print(pageNumber);
 		return "index";
+		}
 	}
 	
 	@PostMapping("/addtofavoriteslist")

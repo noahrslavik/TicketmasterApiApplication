@@ -21,6 +21,12 @@
 </head>
 <body>
 
+<div class="jumbotron">
+  <div class="container" height = 20%>
+    <h1 class="display-4">Your Bucket List</h1>
+    <p class="lead"> We want to help you cross some things off</p>
+  </div>
+</div>
 
 <c:forEach items="${bucket}" var="bucket">
 		<div class="card w-50">
@@ -37,13 +43,13 @@
 						<p class="card-text">
 							<c:out
 								value="${bucket.bgenre} ${bucket.btime}	${bucket.bdate}"></c:out>
-						<form method="Post" action=${tickets.urlIn}}>
+						<form method="Post" action="${bucket.burl}">
 							<button class="btn btn-sm btn-outline-secondary">More
 								Info</button>
 						</form>
 						
 						<form>
-							 <a href="/delete?bid=${bucket.bid}">Delete from list</a>
+							 <a class = "btn btn-outline-secondary" href="/delete?bid=${bucket.bid}">Delete from list</a>
 						</form>
 						</p>
 					</div>

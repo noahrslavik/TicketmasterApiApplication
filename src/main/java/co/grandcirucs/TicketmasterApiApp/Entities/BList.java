@@ -41,6 +41,21 @@ public class BList {
 			this.blocale = blocale;
 			this.burlimage = burlimage;
 		}
+		public BList(String bname, String bdate, String btime, String bgenre, String burl, String blocale,
+				String burlimage) {
+			super();
+			this.bname = bname;
+			this.bdate = bdate;
+			this.btime = btime;
+			this.bgenre = bgenre;
+			this.burl = burl;
+			this.blocale = blocale;
+			this.burlimage = burlimage;
+		}
+		
+		
+		
+		
 
 
 		public Long getBid() {

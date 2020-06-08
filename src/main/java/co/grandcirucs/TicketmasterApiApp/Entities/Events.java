@@ -11,7 +11,7 @@ public class Events {
 	private List<Images> images;
 	private Dates dates;
 	private List <Classifications> classifications;
-	private Embedded _embedded;
+	private _Embedded _embedded;
 	
 	
 
@@ -51,10 +51,10 @@ public class Events {
 	public void setClassifications(List<Classifications> classifications) {
 		this.classifications = classifications;
 	}
-	public Embedded get_embedded() {
+	public _Embedded get_embedded() {
 		return _embedded;
 	}
-	public void set_embedded(Embedded _embedded) {
+	public void set_embedded(_Embedded _embedded) {
 		this._embedded = _embedded;
 	}
 	@Override

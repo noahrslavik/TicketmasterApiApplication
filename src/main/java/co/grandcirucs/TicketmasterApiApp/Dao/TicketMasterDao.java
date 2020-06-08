@@ -10,7 +10,8 @@ public interface TicketMasterDao extends JpaRepository<BList,Long> {
 		
 //		List<BList> findByNameContainingIgnoreCaseOrderByName(String name);
 //		
-//		List<BList> findByOrderByName();
+		List<BList> findAll();
+		
 
 	}
 

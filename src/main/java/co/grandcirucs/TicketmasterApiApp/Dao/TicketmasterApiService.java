@@ -19,13 +19,12 @@ public class TicketmasterApiService {
 
 	private final String ticketId ="IJ14NIqaNP96GM7IupubEkesIwp6QG3A";
 	private RestTemplate rest = new RestTemplate();
-	public List<ConcertInfo> searchByKeyword(String keyword, String name, Integer pageNumber){
+	public List<ConcertInfo> searchByKeyword(String keyword, String name, String local,Integer pageNumber){
 		
 	    if(pageNumber == null || pageNumber< 0) { pageNumber = 0;}
 
-		String url = "https://app.ticketmaster.com/discovery/v2/events?apikey={ticketId}&keyword={keyword}&classificationName={name}&page={pageNumber}";
-		System.out.println(pageNumber);
-		TicketMaster response = rest.getForObject(url, TicketMaster.class, ticketId, keyword, name,pageNumber);
+		String url = "https://app.ticketmaster.com/discovery/v2/events?apikey={ticketId}&keyword={keyword}&classificationName={name}&locale={local}&page={pageNumber}";
+		TicketMaster response = rest.getForObject(url, TicketMaster.class, ticketId, keyword, name, local,pageNumber);
 	
 		Embedded embed = response.get_embedded();
 		List<ConcertInfo>concertArray = new ArrayList<ConcertInfo>();

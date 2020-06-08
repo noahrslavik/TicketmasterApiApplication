@@ -48,7 +48,7 @@
 		<input type="submit" value="Submit">
 	</form>
 	<br>
-
+    
 
 	<c:forEach items="${tickets}" var="tickets">
 		<div class="card w-100">
@@ -68,18 +68,24 @@
 					<p class="card-text">
 						<c:out value="${tickets.localTime}	${tickets.localDate}"></c:out>
 					</p>
-				</div>
+				       </div>
 				<div class=column>
-					<form method="Post" action=${tickets.urlIn}}>
+					<form method="post" action=${tickets.urlIn}}>
 						<button class="btn btn-primary">More Info</button>
 					</form>
 				</div>
 				<div class=column>
-					<form method="Post"
-						action="/addtofavoriteslist?artistName=${tickets.artistName}&classifications=${tickets.classifications}
-			    &localTime=${tickets.localTime}&localDate=${tickets.localDate}&locale=${tickets.locale}
-			    &urlIn=${tickets.urlIn}&image=${tickets.image}">
-						<button class="btn btn-primary">Add to Favorites</button>
+					<form method="Post" action="/addtofavoriteslist">
+					<input type="hidden" name="artistName" value="${tickets.artistName}"/>
+					<input type="hidden" name="classifications" value="${tickets.classifications}"/>
+					<input type="hidden" name="localTime" value="${tickets.localTime}"/>
+					<input type="hidden" name="localDate" value="${tickets.localDate}"/>
+					<input type="hidden" name="locale" value="${tickets.locale}"/>
+					<input type="hidden" name="urlIn" value="${tickets.urlIn}"/>
+					<input type="hidden" name="image" value="${tickets.image}"/>
+					<input type="hidden" name="pageNumber" value="${pageNumber}"/>
+					<input type="hidden" name="keyword" value="${keyword}"/>
+					<button class="btn btn-primary">Add to Favorites</button>
 					</form>
 				</div>
 			</div>

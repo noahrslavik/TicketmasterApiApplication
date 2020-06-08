@@ -24,7 +24,6 @@ public class TicketmasterApiService {
 	    if(pageNumber == null || pageNumber< 0) { pageNumber = 0;}
 
 		String url = "https://app.ticketmaster.com/discovery/v2/events?apikey={ticketId}&keyword={keyword}&classificationName={name}&page={pageNumber}";
-		System.out.println(pageNumber);
 		TicketMaster response = rest.getForObject(url, TicketMaster.class, ticketId, keyword, name,pageNumber);
 	
 		Embedded embed = response.get_embedded();
@@ -46,11 +45,8 @@ public class TicketmasterApiService {
 					localTime, image, classifications);
 			
 			concertArray.add(concert);
-			System.out.print(concert);
 		}
-		
 		return concertArray;
-	
 	}
 	}
 	

@@ -32,17 +32,18 @@
 </head>
 
 <body>
+	<div class="bg">
 	<div id="carouselExampleControls" class="carousel slide"
 		data-ride="carousel">
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img src="confetti.jpeg" class="d-block w-100" alt="...">
+				<img src="confetti.jpeg" class="d-block w-25" alt="...">
 			</div>
 			<div class="carousel-item">
-				<img src="confetti.jpeg" class="d-block w-100" alt="...">
+				<img src="confetti.jpeg" class="d-block w-25" alt="...">
 			</div>
 			<div class="carousel-item">
-				<img src="confetti.jpeg" class="d-block w-100" alt="...">
+				<img src="confetti.jpeg" class="d-block w-25" alt="...">
 			</div>
 		</div>
 		<a class="carousel-control-prev" href="#carouselExampleControls"
@@ -55,7 +56,6 @@
 			class="sr-only">Next</span>
 		</a>
 	</div>
-	<div class="bg">
 
 		<form class="form-inline">
 			<div class="form-row align-items-center">
@@ -90,7 +90,7 @@
 
 				<div class="col-auto my-1">
 					<select class="custom-select mr-sm-2" id="local" name="local">
-						<option value="">Locale...</option>
+						<option value="en-us">Locale...</option>
 						<option value="en-us">English</option>
 						<option value="es-es">Spanish</option>
 						<option value="fr-fr">French</option>

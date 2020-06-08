@@ -69,6 +69,11 @@ public class TicketController {
 		
 		return "favorites";
 		
-		
 	}
+	@RequestMapping("/delete")
+	public String delete(@RequestParam("bid") Long bid, Model model) { 
+		repository.deleteById(bid);
+		return "redirect:/favorites";
+	}
+	
 }

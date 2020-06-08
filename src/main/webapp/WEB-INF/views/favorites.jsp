@@ -42,12 +42,8 @@
 								Info</button>
 						</form>
 						
-						<form method="Post"
-							action="/addtofavoriteslist?artistName=${tickets.artistName}&classifications=${tickets.classifications}
-			    &localTime=${tickets.localTime}&localDate=${tickets.localDate}&locale=${tickets.locale}
-			    &urlIn=${tickets.urlIn}&image=${tickets.image}">
-							<button class="btn btn-sm btn-outline-secondary">Add to
-								List</button>
+						<form>
+							 <a href="/delete?bid=${bucket.bid}">Delete from list</a>
 						</form>
 						</p>
 					</div>

@@ -29,9 +29,10 @@ public class BList {
 	    
 	    }
 	    
-		public BList(String bname, String bdate, String btime, String bgenre, String burl, String blocale,
+		public BList(Long bid,String bname, String bdate, String btime, String bgenre, String burl, String blocale,
 				String burlimage) {
 			super();
+			this.bid = bid;
 			this.bname = bname;
 			this.bdate = bdate;
 			this.btime = btime;
@@ -41,6 +42,14 @@ public class BList {
 			this.burlimage = burlimage;
 		}
 
+
+		public Long getBid() {
+			return bid;
+		}
+
+		public void setBid(Long bid) {
+			this.bid = bid;
+		}
 
 		public String getBdate() {
 			return bdate;
